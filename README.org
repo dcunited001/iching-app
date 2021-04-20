@@ -1,5 +1,106 @@
 * Iching Project
 
+The main idea here is to create a database of Hexagrams & associated content
+
+** Exploring
+
+*** UI
+
+*** API
+
+*** Tests
+
+** Stories
+
+*** Users :users:
+
+**** TODO users: should have authentication? explore removing logins on a new branch
++ +I hate authentication+ I have an opinionated stance on authentication
++ e.g. it's a hassle, for one. it also is the key for collating your data across
+  various platforms.
++ explore how auth is connected in clojure apps & in fulcro
+**** TODO users: can view wilhelm translations bc copyleft?
+**** TODO users: can give feedback e.g:
++ users can flag erroneous information
++ users can contribute information for review about hexagram interpretation
+
+**** Personalization :p14n:
+***** TODO users: can supply personal images for each hexagram
++ or select from a list of copyleft stock photos
+***** TODO users: can customize flashcard profiles
+
+**** Readings :readings:
+***** TODO [#B] users: can do I Ching readings
+***** TODO users: see interesting visual effects when generating readings
++ these visual effects are easy to port to react native, even though they use
+  canvas and possibly webgl ... right?
+***** TODO users: can click subjects/objects in the iching reading to replace them with symbols/subjects from their own life
++ this is awfully pipedreamy at this point
++ the idea: allow user to explore basic interpretation ... madlib-style?
+***** TODO users: can view the probability of the reading's changing/hexagram pair
++ users can click to expand info like this somewhere in the UI
+
+**** Flashcards :flashcards:
+***** TODO [#B] users: can test with basic I Ching flashcards
+***** TODO users: can blacklist fields on flashcards
++ these fields should appear empty on flashcards
+***** TODO users: can whitelist fields on flashcards
++ these fields should always appear filled in on flashcards
+***** TODO users: can select from blacklist/whitelist profiles
++ these should vary in difficulty or in their focus
+***** TODO users: can narrow the flashcards statistics collected to a set of fields
++ i.e. they can test themselves on 2+ fields, but still fill in extraneous
+  fields for various questions if they want
+
+**** Flashcard Fields :fields:
+***** TODO users: can test themselves on each hexagram's Hamming 1-Neighborhood
++ the set of hexgrams that differ by one are often the most frequent changing
+  hexagrams that show for a reading's hexagram
++ the authors/compilers of the i ching took this into account and there are many
+  references to symbols from the lines of a 1-hexagrams in a 0-hexagram
++ the I Ching's later commentators also created the [[https://en.wikipedia.org/wiki/Wen_Wang_Gua][Eight Palaces]], which are
+  generated with the XOR operation from a single self-similar sequence of the
+  Eight Palances, hardly the only occurance of XOR in the I Ching
+***** TODO users: can test on wilhelm line translations
+***** TODO users: can test on legge line translations
+***** TODO users: can test on symbols/images of hexagrams
+***** TODO users: can test on kanji titles
+***** TODO users: can test on hexagram numbers
+***** TODO users: can test on upper/lower trigrams
+***** TODO users: can test on upper/lower nuclear trigrams
+***** TODO users: can get information on adding text entry (keyboards/etc)
+***** TODO users: can decide whether to use multiple choice for completing tests on transliterations & kangxi
+***** TODO users: can test on Pinyin transliterations
+***** TODO users: can test on Zhuyin transliterations
+***** TODO users: can test on japanese katakana translations
++ initially, on only hexagram names
+***** TODO users: can test on korean translations
++ initially, on only hexagram names
++ there are occasionally multiple korean translations for hexagrams
+***** TODO users: can censor chinese history for great marxist struggle against capitalist pigs
+***** TODO users: can test on mawangdui kanji titles (and the Shaughnessy translations)
++ thank God these silk texts weren't found during the +American+ Chinese
+  Cultural Revolution, or Mao would have had them burned
+
+**** Trivia :trivia:
+***** TODO: users can answer flashcards on I Ching trivia
+
+*** Developers :developers:
+
+**** TODO [#B] devs: should have a test user :auth:tests:
++ [ ] this should already exist, check and see
+**** TODO [#C] devs: should be able to publish app via react-native
+**** TODO [#C] devs: should be able to suggest names of first-born children to users of apps via targeted ad campaigns powered by logins and app usage data
+
+*** Monetization :monet:
+
+**** TODO owners can monetize via producing posters
+**** TODO owners can monitize via laminated study materials/posters
+ + something I've wanted to do for a while, but i only have a handwritten
+**** TODO owners can monetize by producing I Ching card decks for readings
+
+* Fulcro Template Notes
+
 ** Status
 
 This is an official template for a Fulcro starter project that might go on to
@@ -54,8 +155,8 @@ you decided to use Nubank Workspaces) client builds. See below. You can simply
 start everything from the command line
 
 #+begin_src shell :tangle no
-git clone --depth 1 -o fulcro-template
-https://github.com/fulcrologic/fulcro-template.git fulcro-app cd fulcro-app
+git clone --depth 1 -o fulcro-template \
+    https://github.com/fulcrologic/fulcro-template.git fulcro-app cd fulcro-app
 
 # The shadow-cljs compiler is a dependency.
 yarn install # or: npm install
